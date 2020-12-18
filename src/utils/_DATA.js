@@ -222,12 +222,15 @@ export function _saveLikeToggle ({ id, hasLiked, authedUser }) {
         [id]: {
           ...tweets[id],
           likes: hasLiked === true
-            ? tweets[id].likes.filter((uid) => uid !== authedUser)
+          //makedislike
+            ? tweets[id].likes.filter((uid) =>uid !== authedUser)
+          //make like
             : tweets[id].likes.concat([authedUser])
         }
       }
 
       res()
+      
     }, 500)
   })
 }
